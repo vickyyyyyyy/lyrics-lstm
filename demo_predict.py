@@ -17,9 +17,9 @@ def main(args):
 
   seed_lyrics = generate_seed_lyrics(tokenized, c.window_size, args.censored)
 
-  dictionary = pp.get_dictionary(tokenized)
-
   model = torch.load(open(c.model_path, 'rb'))
+
+  dictionary = torch.load(open(c.dictionary_path, 'rb'))
 
   predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.num_words, topk=c.predict_topk)
 

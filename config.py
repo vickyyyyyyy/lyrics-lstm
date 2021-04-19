@@ -4,6 +4,7 @@ class Configuration():
     self.artist = "nicki_minaj"
     self.path = "lyrics/" + self.artist
     self.model_path = "ckpt/model_" + self.artist
+    self.dictionary_path = "ckpt/dictionary_"  + self.artist
     self.window_size = 4
     self.train_batch_size = 64
     self.valid_batch_size = 64

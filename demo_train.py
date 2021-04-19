@@ -35,6 +35,10 @@ def main(args):
 
   torch.save(model, c.model_path)
 
+  print("Saving dictionary: ", c.dictionary_path)
+
+  torch.save(dictionary, c.dictionary_path)
+
   print("Generating lyrics...")
 
   seed_lyrics = generate_seed_lyrics(tokenized, c.window_size, args.censored)
