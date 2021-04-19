@@ -1,7 +1,7 @@
 import sys
-import argparse
 import torch
 
+from parser import get_argument_parser
 from config import Configuration
 import preprocess as pp
 from predict import generate_seed_lyrics, predict
@@ -10,6 +10,9 @@ from postprocess import postprocess
 def main(args):
   '''Example script to run prediction on a pre-trained model with sample lyrics dataset'''
   c = Configuration()
+
+  if args.artist:
+    c.set_artist(args.artist)
 
   lyrics_dataset = pp.read_lyrics_files(c.path)
 
@@ -28,8 +31,6 @@ def main(args):
   print(predicted_lyrics)
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser()
-  parser.add_argument("--censored", action="store_true")
-  parser.add_argument("--num_words", type=int, default=400)
+  parser = get_argument_parser()
 
   main(parser.parse_args(sys.argv[1:]))

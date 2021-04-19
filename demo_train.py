@@ -1,8 +1,8 @@
 import sys
-import argparse
 import torch
 from torch.utils.data import DataLoader
 
+from parser import get_argument_parser
 from config import Configuration
 import preprocess as pp
 from models import LyricPredictor
@@ -13,6 +13,9 @@ from postprocess import postprocess
 def main(args):
   '''Example script to train a model on the sample lyrics dataset'''
   c = Configuration()
+
+  if args.artist:
+    c.set_artist(args.artist)
 
   print("Hyperparameters: ", c)
   print("Loading data from path: ", c.path)
@@ -50,7 +53,6 @@ def main(args):
   print(predicted_lyrics)
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser()
-  parser.add_argument("--censored", action="store_true")
+  parser = get_argument_parser()
 
   main(parser.parse_args(sys.argv[1:]))
