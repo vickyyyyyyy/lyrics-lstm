@@ -1,0 +1,7 @@
+better-profanity=0.7.0
+jupyter=1.0.0
+matplotlib=3.3.4
+numpy=1.19.2
+python=3.8.8
+pytorch=1.8.1
+scikit-learn=0.24.1
