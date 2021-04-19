@@ -24,10 +24,14 @@ conda install --file requirements.txt
 python demo_train.py
 ```
 
-Use `--censored` flag to censor explicit lyrics when printing to the terminal.
+Use `--artist` flag to specify the artist to train a model for. Default is `nicki_minaj`.
+
+Use `--censored` flag to censor explicit lyrics when printing to the terminal. Default is `False`.
+
+Use `--num_words` flag to specify how many words to generate for the prediction when training. Default is `400`.
 
 ```
-python demo_train.py --censored
+python demo_train.py --artist taylor_swift --censored --num_words 100
 ```
 
 ### Prediction
@@ -36,12 +40,14 @@ python demo_train.py --censored
 python demo_predict.py
 ```
 
-Use `--censored` flag to censor explicit lyrics.
+Use `--artist` flag to specify the artist to get predicted lyrics for. Default is `nicki_minaj`.
 
-Use `--num_words` flag to specify how many words to generate.
+Use `--censored` flag to censor explicit lyrics. Default is `False`.
+
+Use `--num_words` flag to specify how many words to generate. Default is `400`.
 
 ```
-python demo_predict.py --censored --num_words 100
+python demo_predict.py --artist taylor_swift --censored --num_words 100
 ```
 
 ### Jupyter notebook
@@ -64,7 +70,7 @@ Lyrics were taken from [AZLyrics](https://www.azlyrics.com/) and are organised b
 
 ### Pre-trained models
 
-One pre-trained model is included per artist using the hyperparameters in the configuration file.
+One pre-trained model and vocabulary dictionary is included per artist using the hyperparameters in the configuration file.
 
 ## Possible improvements
 
