@@ -3,7 +3,7 @@ import os
 class Configuration():
   '''Configuration to store constants and hyperparameters'''
   def __init__(self):
-    self.artist = self.set_artist()
+    self.set_artist()
     self.window_size = 4
     self.train_batch_size = 64
     self.valid_batch_size = 64
