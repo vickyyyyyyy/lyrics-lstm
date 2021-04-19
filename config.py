@@ -1,10 +1,9 @@
+import os
+
 class Configuration():
   '''Configuration to store constants and hyperparameters'''
   def __init__(self):
-    self.artist = "nicki_minaj"
-    self.path = "lyrics/" + self.artist
-    self.model_path = "ckpt/model_" + self.artist
-    self.dictionary_path = "ckpt/dictionary_"  + self.artist
+    self.set_artist()
     self.window_size = 4
     self.train_batch_size = 64
     self.valid_batch_size = 64
@@ -17,3 +16,9 @@ class Configuration():
   def __str__(self):
     '''Return configuration as a string'''
     return str(self.__dict__)
+
+  def set_artist(self, artist="nicki_minaj"):
+    self.path = os.path.join("lyrics", artist)
+    self.model_path = os.path.join("ckpt", artist, "model")
+    self.dictionary_path = os.path.join("ckpt", artist, "dictionary")
+    
