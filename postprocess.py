@@ -8,11 +8,14 @@ def postprocess(lyrics, censored):
   '''
     Format output lyrics
     - Sentence case
+    - Capitalise pronoun "I"
     - Remove extra whitespace around punctuation
     - Apply censoring (optional)
   '''
-  sentence_case = re.compile(fr'(?<=[.?!\n]\s)(\w+)|(^\w+)|(i[{string.punctuation}| ])')
+  sentence_case = re.compile(r'(?<=[.?!\n]\s)(\w+)|(^\w+)')
   lyrics = sentence_case.sub(lambda match: match.group().capitalize(), lyrics)
+
+  lyrics = re.sub(fr'\si[{string.punctuation}|\s]|\si$', lambda match: match.group().upper(), lyrics)
 
   lyrics = re.sub(fr" (?=[{punctuation_to_transform}\n])|(?<=\n) ", "", lyrics)
 
