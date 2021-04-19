@@ -10,7 +10,7 @@ def generate_seed_lyrics(tokenized, window_size, censored=False):
   lyrics = tokenized[seed_index:seed_index+window_size]
 
   print("Seed lyrics: ", censor(" ".join(lyrics)) if censored else " ".join(lyrics))
-  print("--------------")
+  print("----------------------------")
 
   return lyrics
 

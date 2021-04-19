@@ -14,15 +14,20 @@ def main(args):
   if args.artist:
     c.set_artist(args.artist)
 
+  print("Artist:", c.artist.replace("_", " ").title())
+
   lyrics_dataset = pp.read_lyrics_files(c.path)
+
+  dictionary = torch.load(open(c.dictionary_path, 'rb'))
+
+  print("Vocabulary size: ", len(dictionary))
+  print("----------------------------")
 
   tokenized = pp.tokenize(lyrics_dataset)
 
   seed_lyrics = generate_seed_lyrics(tokenized, c.window_size, args.censored)
 
   model = torch.load(open(c.model_path, 'rb'))
-
-  dictionary = torch.load(open(c.dictionary_path, 'rb'))
 
   predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.num_words, topk=c.predict_topk)
 
