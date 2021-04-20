@@ -34,4 +34,7 @@ def predict(model, lyrics, dictionary, num_words=100, topk=5):
 
     valid_x = torch.cat((valid_x[:,1:], torch.Tensor(choice_index.reshape(1,1)).long()), 1)
 
+  if num_words < len(lyrics):
+    lyrics = lyrics[0:num_words]
+
   return " ".join(lyrics)
