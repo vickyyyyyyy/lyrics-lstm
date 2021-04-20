@@ -9,9 +9,9 @@ def generate_seed_lyrics(tokenized, window_size, censored=False):
   seed_index = random.randint(0, len(tokenized)-window_size)
   lyrics = tokenized[seed_index:seed_index+window_size]
 
-  print_lyrics = repr(" ".join(lyrics))
+  print_lyrics = censor(" ".join(lyrics)) if censored else " ".join(lyrics)
 
-  print("Seed lyrics: ", censor(print_lyrics) if censored else print_lyrics)
+  print("Seed lyrics: ", repr(print_lyrics))
   print("----------------------------")
 
   return lyrics
