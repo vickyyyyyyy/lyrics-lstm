@@ -46,7 +46,7 @@ def main(args):
 
   seed_lyrics = generate_seed_lyrics(tokenized, c.window_size, args.censored)
 
-  predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.num_words, topk=c.predict_topk)
+  predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.words, topk=c.predict_topk)
 
   predicted_lyrics = postprocess(predicted_lyrics, args.censored)
 

@@ -28,10 +28,10 @@ Use `--artist` flag to specify the artist to train a model for. Default is `nick
 
 Use `--censored` flag to censor explicit lyrics when printing to the terminal. Default is `False`.
 
-Use `--num_words` flag to specify how many words to generate for the prediction when training. Default is `400`.
+Use `--words` flag to specify how many words to generate for the prediction when training. Default is `400`.
 
 ```
-python demo_train.py --artist taylor_swift --censored --num_words 100
+python demo_train.py --artist taylor_swift --censored --words 100
 ```
 
 ### Prediction
@@ -44,10 +44,10 @@ Use `--artist` flag to specify the artist to get predicted lyrics for. Default i
 
 Use `--censored` flag to censor explicit lyrics. Default is `False`.
 
-Use `--num_words` flag to specify how many words to generate. Default is `400`.
+Use `--words` flag to specify how many words to generate. Default is `400`.
 
 ```
-python demo_predict.py --artist taylor_swift --censored --num_words 100
+python demo_predict.py --artist taylor_swift --censored --words 100
 ```
 
 ### Jupyter notebook

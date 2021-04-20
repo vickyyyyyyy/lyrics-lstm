@@ -29,7 +29,7 @@ def main(args):
 
   model = torch.load(open(c.model_path, 'rb'))
 
-  predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.num_words, topk=c.predict_topk)
+  predicted_lyrics = predict(model, seed_lyrics, dictionary, num_words=args.words, topk=c.predict_topk)
 
   predicted_lyrics = postprocess(predicted_lyrics, args.censored)
 
