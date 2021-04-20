@@ -1,3 +1,5 @@
+![Python version](https://img.shields.io/badge/python-3.8-blue)
+
 # Lyrics LSTM
 
 LSTM neural network to generate lyrics matching artists' styles and vocabularies that may or may not make sense. 🎵✍️🧠
