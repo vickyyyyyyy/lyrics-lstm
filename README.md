@@ -52,6 +52,10 @@ Use `--words` flag to specify how many words to generate. Default is `400`.
 python demo_predict.py --artist taylor_swift --censored --words 100
 ```
 
+Example predicted lyrics:
+
+![Taylor Swift predicted lyrics](taylor-swift-prediction.png)
+
 ### Jupyter notebook
 
 Includes cross validation to evaluate model performance and hyperparameter tuning.
